@@ -3,7 +3,7 @@ from django.db import models
 
 
 # Create your models here.
-class User(AbstractUser):
+class User(AbstractUser):  # inherit from django.contrib.auth.models, Abstractuser
 
     """ Custom User Model """
 

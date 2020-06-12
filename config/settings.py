@@ -39,9 +39,13 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    "core.apps.CoreConfig",
+    "core.apps.CoreConfig",  # apps 폴더 안에 있는 class명을 입력
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
+    "reviews.apps.ReviewsConfig",
+    "reservations.apps.ReservationsConfig",
+    "lists.apps.ListsConfig",
+    "conversations.apps.ConversationsConfig",
 ]
 
 THIRD_PARTY_APPS = [
