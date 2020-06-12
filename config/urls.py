@@ -16,6 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# 8.4 장고에서의 세팅 임포팅
+from django.conf import settings
+from django.conf.urls.static import static
+
+# 8.4
 urlpatterns = [
     path("admin/", admin.site.urls),
 ]
+# 디버깅 상태일 때만 사용, static이나 업로드파일을 서버에서 사용하면 서버과부하가 많아서 절대 사용안함. db.sqlite3도 사용안할 거임
+# AWS에 올릴때 이를 분리하여 DB전용 서버로업로드하는 방법을 알려줄거임
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# 8.4

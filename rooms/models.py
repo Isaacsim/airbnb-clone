@@ -56,7 +56,9 @@ class HouseRule(AbstractItem):
 class Photo(core_models.TimeStampedModel):
 
     caption = models.CharField(max_length=50)
-    file = models.ImageField()
+    # 8.3 : uploads 안 어떤 폴더에 설치할지를 설정
+    file = models.ImageField(upload_to="room_photos")
+    # 8.3
     room = models.ForeignKey("Room", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):

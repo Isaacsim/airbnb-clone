@@ -129,3 +129,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+# 8.4 경로를 작성할 때 앞에 /를 추가하면 절대경로, 아니면 상대경로
+MEDIA_URL = "/media/"

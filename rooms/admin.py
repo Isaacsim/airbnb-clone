@@ -25,7 +25,14 @@ class PhotoAdmin(admin.ModelAdmin):
 
     """Photo Admin Definition"""
 
-    pass
+    list_display = (
+        "__str__",
+        "get_thumbnail",
+    )
+
+    def get_thumbnail(self, obj):
+        print(obj.file)
+        return ""
 
 
 @admin.register(models.Room)

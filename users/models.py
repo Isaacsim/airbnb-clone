@@ -31,8 +31,9 @@ class User(AbstractUser):  # inherit from django.contrib.auth.models, Abstractus
         (CURRENCY_USD, "USD"),
         (CURRENCY_KRW, "KRW"),
     )
-
-    avatar = models.ImageField(blank=True)
+    # 8.3 : uploads 안 어떤 폴더에 설치할지를 설정
+    avatar = models.ImageField(blank=True, upload_to="avatars")
+    # 8.3
     gender = models.CharField(choices=GENDER_CHOICES, max_length=10, blank=True)
     bio = models.TextField(default="", blank=True)  # null=TURE 비어있어도 상관없다
     birthdate = models.DateField(blank=True, null=True)
