@@ -41,10 +41,16 @@ class PhotoAdmin(admin.ModelAdmin):
     get_thumbnail.short_description = "Thumbnail"
 
 
+class PhotoInline(admin.TabularInline):
+    model = models.Photo
+
+
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
     """ Room Admin Definition """
+
+    inlines = (PhotoInline,)
 
     fieldsets = (
         (
@@ -88,6 +94,9 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_photos(self, obj):
         return obj.photos.count()
+
+    # 8.6: admin panel에서 검색을 리스트업 검색을 admin 패널검색으로 바꿔줌
+    raw_id_fields = ("host",)
 
     # 정렬
     ordering = ("name", "price", "bedrooms")
