@@ -1,4 +1,7 @@
 from django.contrib import admin
+
+# 8.5 : 장고의 input clean-up의 exception 함수
+from django.utils.html import mark_safe
 from . import models
 
 # Register your models here.
@@ -31,8 +34,11 @@ class PhotoAdmin(admin.ModelAdmin):
     )
 
     def get_thumbnail(self, obj):
-        print(obj.file)
-        return ""
+        # 8.5 : 콘솔로그로 보면 스트링처럼 보이지만, 아닐 수도 있으므로 filetype나 dir, vars로 확인을 해야 한다
+        # 8.5 : 어드민 채널에서 스크립트는 실행하지 못하게 모든 인풋을 클린업함. 따라서 img src 등의 embed, script를 사용하지 못함
+        return mark_safe(f'<img width = "64px" src="{obj.file.url}" />')
+
+    get_thumbnail.short_description = "Thumbnail"
 
 
 @admin.register(models.Room)
