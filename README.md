@@ -2,7 +2,11 @@
 
 Cloning Airbnb with Python, Django, TailwindCSS and more..
 
-git push -u origin master
+git add .
 
 git commit -a -m "#x.x"
+
+git push -u origin master
+
+
 

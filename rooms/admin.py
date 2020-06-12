@@ -65,6 +65,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
 
     # relationship, 함수, manytomanyfields를 리스트업하기 위한 부분

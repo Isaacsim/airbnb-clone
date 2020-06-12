@@ -95,3 +95,16 @@ class Room(core_models.TimeStampedModel):
     # startswith = User.objects.filter(username__startswith="i")
     def __str__(self):
         return self.name  # admin에서 보여지는 경로에서 object(n)이 아닌 이름으로 표기하게 해줌
+
+    # 8.1 :
+    def total_rating(self):
+        all_reviews = self.reviews.all()
+        all_ratings = 0
+        for review in all_reviews:
+            all_ratings += review.rating_average()
+        if all_ratings == 0:
+            return 0
+        else:
+            return all_ratings / len(all_reviews)
+
+    # 8.1
