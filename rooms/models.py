@@ -98,6 +98,11 @@ class Room(core_models.TimeStampedModel):
     def __str__(self):
         return self.name  # admin에서 보여지는 경로에서 object(n)이 아닌 이름으로 표기하게 해줌
 
+    # 8.8 super를 이용한 save 호출 및 상위save 실행전 capiralize
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)  # Call the real save() method
+
     # 8.1 :
     def total_rating(self):
         all_reviews = self.reviews.all()
