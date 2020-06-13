@@ -95,6 +95,8 @@ class RoomAdmin(admin.ModelAdmin):
     def count_photos(self, obj):
         return obj.photos.count()
 
+    count_photos.short_description = "Photo Count"
+
     # 8.6: admin panel에서 검색을 리스트업 검색을 admin 패널검색으로 바꿔줌
     raw_id_fields = ("host",)
 
