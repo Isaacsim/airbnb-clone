@@ -14,14 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # 8.4 장고에서의 세팅 임포팅
 from django.conf import settings
 from django.conf.urls.static import static
 
 # 8.4
+# 10.0 : 장고가 url을 서치할 때 config의 array 순서대로 검색함
 urlpatterns = [
+    path("", include("core.urls", namespace="core")),
     path("admin/", admin.site.urls),
 ]
 # 디버깅 상태일 때만 사용, static이나 업로드파일을 서버에서 사용하면 서버과부하가 많아서 절대 사용안함. db.sqlite3도 사용안할 거임
