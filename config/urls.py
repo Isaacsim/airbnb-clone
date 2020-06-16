@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 # 10.0 : 장고가 url을 서치할 때 config의 array 순서대로 검색함
 urlpatterns = [
     path("", include("core.urls", namespace="core")),
+    path("rooms/", include("rooms.urls", namespace="rooms")),
     path("admin/", admin.site.urls),
 ]
 # 디버깅 상태일 때만 사용, static이나 업로드파일을 서버에서 사용하면 서버과부하가 많아서 절대 사용안함. db.sqlite3도 사용안할 거임
