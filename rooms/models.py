@@ -84,6 +84,7 @@ class Room(core_models.TimeStampedModel):
     check_in = models.TimeField()
     check_out = models.TimeField()
     instant_book = models.BooleanField(default=False)
+    super_host = models.BooleanField(default=False)
     host = models.ForeignKey(
         "users.User", related_name="rooms", on_delete=models.CASCADE
     )  # 7.1 related_name : 유저가 어떻게 이 관계를 찾을것인가, 이름 설정
