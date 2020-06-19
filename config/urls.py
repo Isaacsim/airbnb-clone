@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("", include("core.urls", namespace="core")),
     path("rooms/", include("rooms.urls", namespace="rooms")),
+    path("users/", include("users.urls", namespace="users")),
     path("admin/", admin.site.urls),
 ]
 # 디버깅 상태일 때만 사용, static이나 업로드파일을 서버에서 사용하면 서버과부하가 많아서 절대 사용안함. db.sqlite3도 사용안할 거임

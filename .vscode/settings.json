@@ -1,10 +1,10 @@
 {
   "python.pythonPath": "C:\\Users\\심이삭\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
   "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "python.formatting.provider": "black",
-  "python.linting.flake8Args": [
-    "--max-ling-length=99"
-  ]
+  "editor.formatOnSave": true,
+  "python.linting.flake8Enabled": true,
+  "cornflakes.linter.run": "onType",
+  "cornflakes.linter.executablePath": "path/to/venvs/myvenv/bin/flake8",
 }

@@ -1,7 +1,6 @@
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import render
 from django.core.paginator import Paginator
-from django_countries import countries
 from . import models, forms
 
 # Create your views here.
@@ -51,7 +50,7 @@ class SearchView(View):
                 if city != "Anywhere":
                     filter_args["city__startswith"] = city
                 print(country)
-                if country == None:
+                if country is None:
                     filter_args["country"] = "KR"
                 else:
                     filter_args["country"] = country
@@ -85,8 +84,6 @@ class SearchView(View):
 
                 rooms = paginator.get_page(page)
 
-                print(dir(request.path))
-
                 roots = str(request.get_full_path_info())
 
                 return render(
@@ -97,4 +94,3 @@ class SearchView(View):
         else:
             form = forms.SearchForm()
             return render(request, "rooms/search.html", {"form": form})
-
